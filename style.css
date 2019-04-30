@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button, input[list="states"]{
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.error-message {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}

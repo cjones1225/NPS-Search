@@ -19,7 +19,6 @@ function displayResults(responseJson) {
             </li>`
         )};
     $('#results').removeClass('hidden');
-    console.log(responseJson.data[0].url);
 };
 
 function getParks(query, maxResults=10) {
@@ -50,11 +49,34 @@ function getParks(query, maxResults=10) {
         });
 }
 
+var expanded = false;
+
+function showCheckboxes() {
+    var checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+        checkboxes.style.display = "block";
+        expanded = true;
+    } else {
+        checkboxes.style.display = "none";
+        expanded = false;
+    }
+}
+
+function getCheckedStates() {
+    var checked = new Array ();
+
+    $('input[type=checkbox]:checked').each(function (){
+        checked.push(this.id);
+    });
+    return checked;
+};
+
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
-        const stateSelect = $('#js-desired-states').val();
+        const stateSelect = getCheckedStates();
         const maxResults = $('#js-max-results').val();
+        $('#js-error-message').empty();
         getParks(stateSelect, maxResults);
     });
 }

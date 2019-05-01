@@ -6,67 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>National Park Locator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <h1>National Park Locator</h1>
         <form id="js-form">
             <label for="state-select">Desired State</label>
-            <input list="states" name="desired-states" id="js-desired-states" required>
-            <datalist id="states">
-                <option value="AL">Alabama</option>
-	            <option value="AK">Alaska</option>
-	            <option value="AZ">Arizona</option>
-	            <option value="AR">Arkansas</option>
-	            <option value="CA">California</option>
-	            <option value="CO">Colorado</option>
-	            <option value="CT">Connecticut</option>
-	            <option value="DE">Delaware</option>
-	            <option value="DC">District Of Columbia</option>
-	            <option value="FL">Florida</option>
-	            <option value="GA">Georgia</option>
-	            <option value="HI">Hawaii</option>
-	            <option value="ID">Idaho</option>
-	            <option value="IL">Illinois</option>
-	            <option value="IN">Indiana</option>
-	            <option value="IA">Iowa</option>
-	            <option value="KS">Kansas</option>
-	            <option value="KY">Kentucky</option>
-	            <option value="LA">Louisiana</option>
-	            <option value="ME">Maine</option>
-	            <option value="MD">Maryland</option>
-	            <option value="MA">Massachusetts</option>
-	            <option value="MI">Michigan</option>
-	            <option value="MN">Minnesota</option>
-	            <option value="MS">Mississippi</option>
-	            <option value="MO">Missouri</option>
-	            <option value="MT">Montana</option>
-	            <option value="NE">Nebraska</option>
-	            <option value="NV">Nevada</option>
-	            <option value="NH">New Hampshire</option>
-	            <option value="NJ">New Jersey</option>
-	            <option value="NM">New Mexico</option>
-	            <option value="NY">New York</option>
-	            <option value="NC">North Carolina</option>
-	            <option value="ND">North Dakota</option>
-	            <option value="OH">Ohio</option>
-	            <option value="OK">Oklahoma</option>
-	            <option value="OR">Oregon</option>
-	            <option value="PA">Pennsylvania</option>
-	            <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-	            <option value="SD">South Dakota</option>
-	            <option value="TN">Tennessee</option>
-	            <option value="TX">Texas</option>
-	            <option value="UT">Utah</option>
-	            <option value="VT">Vermont</option>
-	            <option value="VA">Virginia</option>
-	            <option value="WA">Washington</option>
-	            <option value="WV">West Virginia</option>
-	            <option value="WI">Wisconsin</option>
-	            <option value="WY">Wyoming</option>
-            </datalist>
+            <div class="selectBox" onclick="showCheckboxes()">
+            <select>
+                <option>Select 1 or More States</option>
+            </select>
+            <div class="overSelect"></div>
+            </div>
+            <input class="hidden" id="js-desired-states"></input>
+            <div id="checkboxes">
+                <label for="AL"><input type="checkbox" id="AL"/>Alabama</label>
+	            <label for="AK"><input type="checkbox" id="AK"/>Alaska</label>
+	            <label for="AZ"><input type="checkbox" id="AZ"/>Arizona</label>
+	            <label for="AR"><input type="checkbox" id="AR"/>Arkansas</label>
+	            <label for="CA"><input type="checkbox" id="CA"/>California</label>
+                <label for="CO"><input type="checkbox" id="CO"/>Colorado</label>
+	            <label for="CT"><input type="checkbox" id="CT"/>Connecticut</label>
+	            <label for="DE"><input type="checkbox" id="DE"/>Delaware</label>
+	            <label for="DC"><input type="checkbox" id="DC"/>District Of Columbia</label>
+	            <label for="FL"><input type="checkbox" id="FL"/>Florida</label>
+	            <label for="GA"><input type="checkbox" id="GA"/>Georgia</label>
+	            <label for="HI"><input type="checkbox" id="HI"/>Hawaii</label>
+	            <label for="ID"><input type="checkbox" id="ID"/>Idaho</label>
+	            <label for="IL"><input type="checkbox" id="IL"/>Illinois</label>
+	            <label for="IN"><input type="checkbox" id="IN"/>Indiana</label>
+	            <label for="IA"><input type="checkbox" id="IA"/>Iowa</label>
+	            <label for="KS"><input type="checkbox" id="KS"/>Kansas</label>
+	            <label for="KY"><input type="checkbox" id="KY"/>Kentucky</label>
+	            <label for="LA"><input type="checkbox" id="LA"/>Louisiana</label>
+	            <label for="ME"><input type="checkbox" id="ME"/>Maine</label>
+	            <label for="MD"><input type="checkbox" id="MD"/>Maryland</label>
+	            <label for="MA"><input type="checkbox" id="MA"/>Massachusetts</label>
+	            <label for="MI"><input type="checkbox" id="MI"/>Michigan</label>
+	            <label for="MN"><input type="checkbox" id="MN"/>Minnesota</label>
+	            <label for="MS"><input type="checkbox" id="MS"/>Mississippi</label>
+	            <label for="MO"><input type="checkbox" id="MO"/>Missouri</label>
+	            <label for="MT"><input type="checkbox" id="MT"/>Montana</label>
+	            <label for="NE"><input type="checkbox" id="NE"/>Nebraska</label>
+	            <label for="NV"><input type="checkbox" id="NV"/>Nevada</label>
+	            <label for="NH"><input type="checkbox" id="NH"/>New Hampshire</label>
+	            <label for="NJ"><input type="checkbox" id="NJ"/>New Jersey</label>
+	            <label for="NM"><input type="checkbox" id="NM"/>New Mexico</label>
+	            <label for="NY"><input type="checkbox" id="NY"/>New York</label>
+	            <label for="NC"><input type="checkbox" id="NC"/>North Carolina</label>
+	            <label for="ND"><input type="checkbox" id="ND"/>North Dakota</label>
+	            <label for="OH"><input type="checkbox" id="OH"/>Ohio</label>
+	            <label for="OK"><input type="checkbox" id="OK"/>Oklahoma</label>
+	            <label for="OR"><input type="checkbox" id="OR"/>Oregon</label>
+	            <label for="PA"><input type="checkbox" id="PA"/>Pennsylvania</label>
+	            <label for="RI"><input type="checkbox" id="RI"/>Rhode Island</label>
+                <label for="SC"><input type="checkbox" id="SC"/>South Carolina</label>
+	            <label for="SD"><input type="checkbox" id="SD"/>South Dakota</label>
+	            <label for="TN"><input type="checkbox" id="TN"/>Tennessee</label>
+	            <label for="TX"><input type="checkbox" id="TX"/>Texas</label>
+	            <label for="UT"><input type="checkbox" id="UT"/>Utah</label>
+	            <label for="VT"><input type="checkbox" id="VT"/>Vermont</label>
+	            <label for="VA"><input type="checkbox" id="VA"/>Virginia</label>
+	            <label for="WA"><input type="checkbox" id="WA"/>Washington</label>
+	            <label for="WV"><input type="checkbox" id="WV"/>West Virginia</label>
+	            <label for="WI"><input type="checkbox" id="WI"/>Wisconsin</label>
+	            <label for="WY"><input type="checkbox" id="WY"/>Wyoming</label>
+            </div>
             <label for="max-results">How Many Parks Would You Like To See?</label>
             <input type="number" name="max-results" id="js-max-results" value="10">
             <input type="submit" value="Go!">
